@@ -42,7 +42,7 @@ def load_data_paths() -> 'tuple[list[str], list[int]]':
 
 # Transfer Learning model creation function
 def create_model() -> keras.Model:
-    base_model = MobileNetV2(input_shape=(256, 256, 3), include_top=False, weights='imagenet')
+    base_model = MobileNetV2(input_shape=(224, 224, 3), include_top=False, weights='imagenet')
     base_model.trainable = True
     for layer in base_model.layers[:-10]:
         layer.trainable = False
